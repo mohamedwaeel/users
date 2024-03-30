@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg bg-black">
+  <div class="container">
+    <a class="navbar-brand text-white" href="#"><h1>Users List</h1></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <input
+        type="number"
+        class="mx-auto w-50 my-2 form-control"
+        placeholder="search..."
+        [(ngModel)]="searchInput"
+      />
+    </div>
+  </div>
+</nav>
+<section>
+  <div class="container">
+    <div class="row gy-3 mt-5">
+      <div class="col-md-4" *ngFor="let user of users | search : searchInput">
+        <div
+          class="d-flex rounded-pill border border-2"
+          [routerLink]="['/details', user.id]"
+        >
+          <img [src]="user.avatar" alt="avatar" class="p-2 rounded-circle" />
+          <div class="align-self-center ms-3">
+            <h3>
+              Name :
+
+              <span class="text-muted">
+                {{ user.first_name }} {{ user.last_name }}
+              </span>
+            </h3>
+            <h4>
+              Id: <span class="text-muted">{{ user.id }}</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

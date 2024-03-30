@@ -1,0 +1,9 @@
+h1 {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.col-md-4 {
+  cursor: pointer;
+}
